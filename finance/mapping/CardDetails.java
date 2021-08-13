@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name="carddet")
+@Table(name="carddet1")
 public class CardDetails {
 	@Id
 	private long regid;

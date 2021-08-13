@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.finance.mapping.CardDetails;
 import com.finance.mapping.RetQuery;
 import com.finance.mapping.UserDetails;
 import com.finance.model.ProductHistory;
@@ -33,22 +34,31 @@ public class FinanceController {
 	 @Autowired
 	 CardRepository cdRep;
 	 
-	
+	  //Details of user transaction history
       @GetMapping("/financeHistory/{regid}")
       public List<ProductHistory> getProducts(@PathVariable(value="regid")int regid){
     	  return finSer.getProducts(regid);
       }
+      //Details of User from user table.
       @GetMapping("/details/{regid}")
       public UserDetails getDetails(@PathVariable(value="regid")long regid) {
-    	  return finSer.getDetailsById(regid);
+    	  return finSer.getDetailsByRegId(regid);
       }
+    //Just for testing
       @GetMapping("/alldetails")
       public List<UserDetails> getAllDetails() {
     	  return finSer.getAllDetails();
       }
+      
+      
+      //Just for testing
       @PostMapping("/addetails")
       public String addDetails(@RequestBody UserDetails userDet) {
     	 return finSer.addDetails(userDet);
+      }
+      @GetMapping("/carddetails/{regid}")
+      public CardDetails getCardDet(@PathVariable(value="regid")long regid){
+    	  return finSer.getCardDetailsByRegId(regid);
       }
       
 }

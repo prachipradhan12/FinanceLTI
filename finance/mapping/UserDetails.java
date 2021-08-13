@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="userdet")
+@Table(name="userdet1")
 public class UserDetails {
 	
 		@Id
@@ -25,16 +25,16 @@ public class UserDetails {
 		private String ifsc_code;
 		private Date applied_on; 
 		private String isverified;
-		@OneToOne(targetEntity = CardDetails.class,cascade = CascadeType.ALL)
-//		@JoinColumn(name="card_fk", referencedColumnName = "regid")
-		private CardDetails cardDetails;
+//		@OneToOne(targetEntity = CardDetails.class,cascade = CascadeType.ALL)
+////		@JoinColumn(name="card_fk", referencedColumnName = "regid")
+//		private CardDetails cardDetails;
 		public UserDetails() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
 		public UserDetails(long regid, String uname, long phone, String email, String upass, String address,
 				String cardtype, String bankname, long acc_no, String ifsc_code, Date applied_on,
-				String isverified, CardDetails cardDetails) {
+				String isverified) {
 			super();
 			this.regid = regid;
 			this.uname = uname;
@@ -48,7 +48,7 @@ public class UserDetails {
 			this.ifsc_code = ifsc_code;
 			this.applied_on = applied_on;
 			this.isverified = isverified;
-			this.cardDetails = cardDetails;
+//			this.cardDetails = cardDetails;
 		}
 		public long getRegid() {
 			return regid;
@@ -122,11 +122,11 @@ public class UserDetails {
 		public void setIsverified(String isverified) {
 			this.isverified = isverified;
 		}
-		public CardDetails getCardDetails() {
-			return cardDetails;
-		}
-		public void setCardDetails(CardDetails cardDetails) {
-			this.cardDetails = cardDetails;
-		}
+//		public CardDetails getCardDetails() {
+//			return cardDetails;
+//		}
+//		public void setCardDetails(CardDetails cardDetails) {
+//			this.cardDetails = cardDetails;
+//		}
          
 }
